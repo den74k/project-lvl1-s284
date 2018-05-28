@@ -1,0 +1,37 @@
+{
+  "name": "hexlet.den74k.1",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "babel-node": "babel-node",
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublishOnly": "npm run build"
+  },
+  "bin": {
+    "brain-games": "./dist/bin/brain-games.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/den74k/project-lvl1-s284.git"
+  },
+  "keywords": [
+    "hexlet"
+  ],
+  "author": "Denis Samokish",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/den74k/project-lvl1-s284/issues"
+  },
+  "homepage": "https://github.com/den74k/project-lvl1-s284#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1"
+  },
+  "dependencies": {}
+}
