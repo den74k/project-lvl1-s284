@@ -1,12 +1,12 @@
 {
   "name": "hexlet.den74k.1",
-  "version": "0.0.3",
-  "description": "",
-  "main": "dist/index.js",
+  "version": "0.0.4",
+  "description": "Denis Samokish Hexlet project",
   "scripts": {
     "babel-node": "babel-node",
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "eslint": "eslint"
   },
   "bin": {
     "brain-games": "./dist/bin/brain-games.js"
@@ -31,9 +31,13 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "babel-preset-stage-0": "^6.24.1"
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^4.19.1"
   },
   "dependencies": {
+    "babel-eslint": "^8.2.3",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.12.0",
     "readline-sync": "^1.4.9"
   }
 }
