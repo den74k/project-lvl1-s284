@@ -7,11 +7,9 @@ export const getUserName = () => {
 
 export const playGame = () => {
   console.log('Welcome to the Brain Games!');
-  console.log('Answer "yes" if number even otherwise answer "no"');
-  console.log();
+  console.log('Answer "yes" if number even otherwise answer "no"\n');
   const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello ${userName}!`);
-  console.log();
+  console.log(`Hello ${userName}!\n`);
 
   const startGame = (roundsCount) => {
     if (roundsCount === 0) {
