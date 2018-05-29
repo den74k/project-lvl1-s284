@@ -3,44 +3,32 @@ import readlineSync from 'readline-sync';
 export const getUserName = () => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hi ${userName}!`);
-  return userName;
 };
 
-const getQuestion = (game) => {
-  if (game === 'even') {
-    return Math.floor(Math.random() * 100);
-  }
-  return 'Undefined game';
-};
-
-const getAnswer = () => readlineSync.question('Your answer: ');
-
-const testAnswer = (game, question) => {
-  if (game === 'even') {
-    return question % 2 === 0 ? 'yes' : 'no';
-  }
-  return 'undefined';
-};
-
-export const playGame = (game) => {
-  const userName = getUserName();
+export const playGame = () => {
+  console.log('Welcome to the Brain Games!');
+  console.log('Answer "yes" if number even otherwise answer "no"');
   console.log();
-  const testForEven = (acc) => {
-    if (acc === 3) {
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello ${userName}!`);
+  console.log();
+
+  const startGame = (roundsCount) => {
+    if (roundsCount === 0) {
       return console.log(`Congratulations, ${userName}!`);
     }
 
-    const question = getQuestion(game);
-    console.log(`Question: ${question}`);
-    const userAnswer = getAnswer();
-    const correctAnswer = testAnswer(game, question);
+    const numberGeneration = Math.floor(Math.random() * 10);
+    console.log(`Question: ${numberGeneration}`);
+    const answerFromUser = readlineSync.question('Your answer: ');
+    const correctAnswer = numberGeneration % 2 === 0 ? 'yes' : 'no';
 
-    if (userAnswer === correctAnswer) {
+    if (answerFromUser === correctAnswer) {
       console.log('Correct');
-      return testForEven(acc + 1);
+      return startGame(roundsCount - 1);
     }
-    console.log(`'${userAnswer}' is wrong answer ;(.Correct answer was '${correctAnswer}'`);
+    console.log(`'${answerFromUser}' is wrong answer ;(.Correct answer was '${correctAnswer}'`);
     return console.log(`Let's try again, ${userName}`);
   };
-  return testForEven(0);
+  return startGame(3);
 };
