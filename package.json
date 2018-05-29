@@ -1,6 +1,6 @@
 {
   "name": "hexlet.den74k.1",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Denis Samokish Hexlet project",
   "scripts": {
     "babel-node": "babel-node",
