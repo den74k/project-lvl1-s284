@@ -1,6 +1,6 @@
 {
   "name": "hexlet.den74k.1",
-  "version": "0.0.9",
+  "version": "0.1.2",
   "description": "Denis Samokish Hexlet project",
   "scripts": {
     "babel-node": "babel-node",
@@ -10,7 +10,8 @@
   },
   "bin": {
     "brain-games": "./dist/bin/brain-games.js",
-    "brain-even": "./dist/bin/brain-even.js"
+    "brain-even": "./dist/bin/brain-even.js",
+    "brain-calc": "./dist/bin/brain-calc.js"
   },
   "files": [
     "dist"

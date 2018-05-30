@@ -1,32 +1,34 @@
 import readlineSync from 'readline-sync';
 
-export const getUserName = () => {
-  const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hi ${userName}!`);
-};
+const roundCounter = 3;
 
-export const playGame = () => {
+export default (game, rule) => {
   console.log('Welcome to the Brain Games!');
-  console.log('Answer "yes" if number even otherwise answer "no"\n');
+  console.log(`${rule}\n`);
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello ${userName}!\n`);
 
   const startGame = (roundsCount) => {
     if (roundsCount === 0) {
-      return console.log(`Congratulations, ${userName}!`);
+      console.log(`Congratulations, ${userName}!`);
+      return;
     }
 
-    const numberGeneration = Math.floor(Math.random() * 10);
-    console.log(`Question: ${numberGeneration}`);
+    const newGame = game();
+    const question = newGame.questionFromGame;
+    const correctAnswer = String(newGame.correctAnswerFromGame);
+
+    console.log(`Question: ${question}`);
     const answerFromUser = readlineSync.question('Your answer: ');
-    const correctAnswer = numberGeneration % 2 === 0 ? 'yes' : 'no';
 
     if (answerFromUser === correctAnswer) {
       console.log('Correct');
-      return startGame(roundsCount - 1);
+    } else {
+      console.log(`'${answerFromUser}' is wrong answer ;(.Correct answer was '${correctAnswer}'`);
+      console.log(`Let's try again, ${userName}`);
+      return;
     }
-    console.log(`'${answerFromUser}' is wrong answer ;(.Correct answer was '${correctAnswer}'`);
-    return console.log(`Let's try again, ${userName}`);
+    startGame(roundsCount - 1);
   };
-  return startGame(3);
+  startGame(roundCounter);
 };
