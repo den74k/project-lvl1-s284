@@ -1,5 +1,6 @@
+import { cons } from 'hexlet-pairs';
 import playGame from '..';
-import { generateNumber } from '../math';
+import generateNumber from '../math';
 
 const rule = 'What is the result of the expression?';
 
@@ -8,25 +9,25 @@ const brainCalc = () => {
   const randomNum1 = generateNumber(1, 10);
   const randomNum2 = generateNumber(1, 10);
 
-  let questionFromGame;
-  let correctAnswerFromGame;
+  let question;
+  let correctAnswer;
   switch (randomNumForSign) {
     case 1:
-      questionFromGame = `${randomNum1} + ${randomNum2}`;
-      correctAnswerFromGame = randomNum1 + randomNum2;
+      question = `${randomNum1} + ${randomNum2}`;
+      correctAnswer = randomNum1 + randomNum2;
       break;
     case 2:
-      questionFromGame = `${randomNum1} - ${randomNum2}`;
-      correctAnswerFromGame = randomNum1 - randomNum2;
+      question = `${randomNum1} - ${randomNum2}`;
+      correctAnswer = randomNum1 - randomNum2;
       break;
     case 3:
-      questionFromGame = `${randomNum1} * ${randomNum2}`;
-      correctAnswerFromGame = randomNum1 * randomNum2;
+      question = `${randomNum1} * ${randomNum2}`;
+      correctAnswer = randomNum1 * randomNum2;
       break;
     default: break;
   }
 
-  return { questionFromGame, correctAnswerFromGame };
+  return cons(question, correctAnswer);
 };
 
 export default () => playGame(brainCalc, rule);

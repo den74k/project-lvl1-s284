@@ -1,4 +1,5 @@
 import readlineSync from 'readline-sync';
+import { car, cdr } from 'hexlet-pairs';
 
 const roundCounter = 3;
 
@@ -15,8 +16,8 @@ export default (game, rule) => {
     }
 
     const newGame = game();
-    const question = newGame.questionFromGame;
-    const correctAnswer = String(newGame.correctAnswerFromGame);
+    const question = car(newGame);
+    const correctAnswer = String(cdr(newGame));
 
     console.log(`Question: ${question}`);
     const answerFromUser = readlineSync.question('Your answer: ');
