@@ -40,7 +40,6 @@ const balancingNumbers = (number) => {
   return balancedArrayToNumber(arrayBalancing(arrayOfNumbers(number)));
 };
 
-
 const brainBalance = () => {
   const question = generateNumber(100, 9999);
   const correctAnswer = balancingNumbers(question);
