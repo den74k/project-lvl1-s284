@@ -4,37 +4,29 @@ import generateNumber from '../utils';
 
 const rule = 'Balance the given number';
 
-const balancingNumbers = (number) => {
+const balancingNumber = (number) => {
   const doArrayFromNumber = (num) => {
-    const arr = [];
-    const numbersToString = String(num);
-    for (let i = 0; i < numbersToString.length; i += 1) {
-      const numeralFromString = Number(String(num)[i]);
-      arr.push(numeralFromString);
-    }
+    const arr = String(num).split('').map(Number);
     return arr;
   };
 
-  const doBalancedNumberFromArray = (arr) => {
-    const balancing = (elements) => {
-      const sortedArray = elements.sort((a, b) => a - b);
-      const firstNum = sortedArray[0];
-      const lastNum = sortedArray[sortedArray.length - 1];
-      if (firstNum < lastNum - 1) {
-        sortedArray[0] = firstNum + 1;
-        sortedArray[sortedArray.length - 1] = lastNum - 1;
-        return balancing(sortedArray);
-      }
-      return Number(elements.join(''));
-    };
-    return balancing(arr);
+  const doBalancedNumberFromArray = (array) => {
+    const arr = array;
+    arr.sort((a, b) => a - b);
+    const lastNumIndex = arr.length - 1;
+    while (arr[0] < arr[lastNumIndex] - 1) {
+      arr[0] += 1;
+      arr[lastNumIndex] -= 1;
+      arr.sort((a, b) => a - b);
+    }
+    return Number(array.join(''));
   };
   return doBalancedNumberFromArray(doArrayFromNumber(number));
 };
 
 const brainBalance = () => {
   const question = generateNumber(100, 9999);
-  const correctAnswer = balancingNumbers(question);
+  const correctAnswer = balancingNumber(question);
   return cons(question, correctAnswer);
 };
 
