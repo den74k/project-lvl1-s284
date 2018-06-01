@@ -1,4 +1,4 @@
-import { cons, car, cdr } from 'hexlet-pairs';
+import { cons } from 'hexlet-pairs';
 import playGame from '..';
 import generateNumber from '../utils';
 
@@ -15,20 +15,12 @@ const arithmeticProgression = (length) => {
   return arr;
 };
 
-const makeQuestionAndAnswer = (progression) => {
-  const newProgression = progression;
-  const randomElement = generateNumber(0, newProgression.length);
-  const answer = newProgression[randomElement];
-  newProgression[randomElement] = '..';
-  const question = newProgression.join(' ');
-  return cons(question, answer);
-};
-
 const brainProgression = () => {
   const newProgression = arithmeticProgression(progressionLength);
-  const getQuestionAndAnswer = makeQuestionAndAnswer(newProgression);
-  const question = car(getQuestionAndAnswer);
-  const correctAnswer = cdr(getQuestionAndAnswer);
+  const randomElement = generateNumber(0, newProgression.length);
+  const correctAnswer = newProgression[randomElement];
+  newProgression[randomElement] = '..';
+  const question = newProgression.join(' ');
   return cons(question, correctAnswer);
 };
 
