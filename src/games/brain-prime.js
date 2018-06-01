@@ -1,6 +1,6 @@
 import { cons } from 'hexlet-pairs';
 import playGame from '..';
-import generateNumber from '../math';
+import generateNumber from '../utils';
 
 const rule = 'Answer "yes" if number prime otherwise answer "no"';
 

@@ -1,6 +1,6 @@
 import { cons, car, cdr } from 'hexlet-pairs';
 import playGame from '..';
-import generateNumber from '../math';
+import generateNumber from '../utils';
 
 const rule = 'What number is missing in this progression?';
 const progressionLength = 10;
