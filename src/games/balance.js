@@ -5,10 +5,7 @@ import generateNumber from '../utils';
 const rule = 'Balance the given number';
 
 const balancingNumber = (number) => {
-  const doArrayFromNumber = (num) => {
-    const arr = String(num).split('').map(Number);
-    return arr;
-  };
+  const doArrayFromNumber = num => String(num).split('').map(Number);
 
   const doBalancedNumberFromArray = (array) => {
     const arr = array;
