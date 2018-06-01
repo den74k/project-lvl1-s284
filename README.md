@@ -15,7 +15,7 @@
 ### brain-progression
   * What number is missing in this progression?
 ### brain-prime
-  * 'Answer "yes" if number prime otherwise answer "no"'.
+  * Answer "yes" if number prime otherwise answer "no".
 
 ## Installation
 ```
